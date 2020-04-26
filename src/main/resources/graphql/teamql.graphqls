@@ -1,0 +1,20 @@
+    type Team{
+        id: ID!
+        name: String!
+        playerCount: Int!
+        league: League!
+    }
+
+    input TeamInput{
+        name: String!
+        playerCount: Int!
+    }
+
+    extend type Query {
+        team(name: String): Team
+        teams: [Team]
+    }
+
+    extend type Mutation {
+        createTeam(teamInput: TeamInput, leagueName: String): Team
+    }

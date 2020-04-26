@@ -1,0 +1,22 @@
+    type League {
+        id: ID!
+        name: String!
+        foundYear: String!
+        teamCount: Int!
+    }
+
+    input LeagueInput {
+        name: String!
+        foundYear: String!
+        teamCount: Int!
+    }
+
+
+    extend type Query {
+        league(name: String): League
+        leagues: [League]
+    }
+
+    extend type Mutation {
+        createLeague(leagueInput: LeagueInput): League
+    }

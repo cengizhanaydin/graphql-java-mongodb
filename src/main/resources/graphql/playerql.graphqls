@@ -1,0 +1,23 @@
+    type Player {
+        id: ID!
+        licenseID: String!
+        name: String!
+        surname: String!
+        team: Team!
+        league: League!
+    }
+
+    input PlayerInput{
+        licenseID: String!
+        name: String!
+        surname: String!
+    }
+
+    type Query {
+        player(licenseID: String): Player
+        players: [Player]
+    }
+
+    type Mutation {
+        createPlayer(playerInput: PlayerInput,teamName: String,leagueName: String): Player
+    }
